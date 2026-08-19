@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
 
     // State
-    let darkMode = false;
+    let darkMode = true;
     let activeSection = 'home';
 
     // ==================== THEME TOGGLE ====================
@@ -21,7 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.textContent = darkMode ? '☀ Light' : '☾ Dark';
     }
 
-    themeToggle.addEventListener('click', toggleTheme);
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀ Light';
+    themeToggle.setAttribute('aria-label', 'Switch to light mode');
+
+    themeToggle.addEventListener('click', () => {
+        toggleTheme();
+        themeToggle.setAttribute(
+            'aria-label',
+            darkMode ? 'Switch to light mode' : 'Switch to dark mode'
+        );
+    });
 
     // ==================== HAMBURGER MENU ====================
     hamburgerBtn.addEventListener('click', () => {

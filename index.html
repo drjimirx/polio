@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,30 +96,16 @@
                 </div>
 
                 <div class="hero-visual slide-in-right">
-                    <div class="floating-sphere"></div>
-                    <div class="floating-cube"></div>
-                    <div class="floating-torus"></div>
-                    <svg class="neural-network" viewBox="0 0 400 400">
-                        <defs>
-                            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="200" cy="100" r="6" fill="url(#grad)" opacity="0.8"/>
-                        <circle cx="100" cy="200" r="6" fill="url(#grad)" opacity="0.8"/>
-                        <circle cx="300" cy="200" r="6" fill="url(#grad)" opacity="0.8"/>
-                        <circle cx="200" cy="300" r="6" fill="url(#grad)" opacity="0.8"/>
-                        <circle cx="150" cy="150" r="5" fill="url(#grad)" opacity="0.6"/>
-                        <circle cx="250" cy="150" r="5" fill="url(#grad)" opacity="0.6"/>
-                        <circle cx="150" cy="250" r="5" fill="url(#grad)" opacity="0.6"/>
-                        <circle cx="250" cy="250" r="5" fill="url(#grad)" opacity="0.6"/>
-                        <line x1="200" y1="100" x2="100" y2="200" stroke="url(#grad)" stroke-width="1.5" opacity="0.4"/>
-                        <line x1="200" y1="100" x2="300" y2="200" stroke="url(#grad)" stroke-width="1.5" opacity="0.4"/>
-                        <line x1="100" y1="200" x2="200" y2="300" stroke="url(#grad)" stroke-width="1.5" opacity="0.4"/>
-                        <line x1="300" y1="200" x2="200" y2="300" stroke="url(#grad)" stroke-width="1.5" opacity="0.4"/>
-                    </svg>
-                </div>
+                    <div class="hero-image-glow" aria-hidden="true"></div>
+                    <div class="hero-image-frame">
+                        <img
+                            class="hero-person"
+                            src="person.png"
+                            alt="Jimi S. wearing a white medical coat and stethoscope"
+                            loading="eager"
+                        >
+                    </div>
+                </div>                </div>
             </div>
         </div>
     </section>
