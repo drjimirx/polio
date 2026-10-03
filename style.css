@@ -167,10 +167,10 @@ input, textarea, button {
     top: 0;
     width: 100%;
     z-index: 1000;
-    -webkit-backdrop-filter: blur(20px);
+    /* -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
-    background: var(--nav-bg);
-    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    border-bottom: 1px solid var(--border); */
     transition: all 0.3s ease;
 }
 
@@ -1685,4 +1685,17 @@ body {
 @media (min-width: 769px) and (max-width: 860px) {
     .hero-visual { height: clamp(520px, 82vw, 760px); max-height: none; margin-top: 1rem; }
     .hero-image-frame { width: min(100%, 640px); margin-inline: auto; }
+}
+
+/* ===================== NAVBAR & FOOTER FUSED WITH BODY ===================== */
+:root .navbar,
+[data-theme="dark"] .navbar:not(.scrolled),
+[data-theme="dark"] .navbar.scrolled,
+:root .navbar.scrolled,
+:root .footer {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border: none;
+    box-shadow: none;
 }
