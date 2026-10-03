@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleTheme() {
         darkMode = !darkMode;
         document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
-        themeToggle.textContent = darkMode ? '☀ Light' : '☾ Dark';
+        themeToggle.textContent = darkMode ? '☀' : '☾';
     }
 
     document.documentElement.setAttribute('data-theme', 'dark');
-    themeToggle.textContent = '☀ Light';
+    themeToggle.textContent = '☀';
     themeToggle.setAttribute('aria-label', 'Switch to light mode');
 
     themeToggle.addEventListener('click', () => {
@@ -177,6 +177,21 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+
+    // ==================== HERO IMAGE REVEAL (mobile: slides in on scroll) ====================
+    document.documentElement.classList.add('js');
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroVisual) {
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heroVisual.classList.add('is-visible');
+                    heroObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.2 });
+        heroObserver.observe(heroVisual);
+    }
 
     // ==================== CONTACT FORM ====================
     contactForm.addEventListener('submit', (e) => {
