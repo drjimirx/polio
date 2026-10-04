@@ -1068,11 +1068,16 @@ input, textarea, button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(99, 102, 241, 0.08);
-    border: 1px solid rgba(99, 102, 241, 0.25);
+   
+    
     color: var(--text-primary);
     font-size: 1.4rem;
     transition: all 0.3s;
+     background: transparent;
+    border: none;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
 }
 
 .social-link:hover {
@@ -1081,7 +1086,7 @@ input, textarea, button {
 
 .social-link.github:hover {
     background: rgba(0, 0, 0, 0.4);
-    color: white;
+    color: #0077b5;
 }
 
 .social-link.linkedin:hover {
@@ -1090,7 +1095,15 @@ input, textarea, button {
 }
 
 .social-link.facebook:hover {
-    background: rgba(59, 89, 152, 0.25);
+    background: rgba(59, 89, 152, 0.15);
+    color: #3b5998;
+}
+.social-link.Instagram:hover {
+    background: rgba(59, 89, 152, 0.15);
+    color: #3b5998;
+}
+.social-link.Twitter:hover {
+    background: rgba(59, 89, 152, 0.15);
     color: #3b5998;
 }
 
@@ -1130,7 +1143,7 @@ input, textarea, button {
     width: 48px;
     height: 48px;
     border-radius: 10px;
-    background: rgba(99, 102, 241, 0.55);
+    /* background: rgba(99, 102, 241, 0.55); */
     border: none;
     cursor: pointer;
     color: white;
@@ -1141,7 +1154,7 @@ input, textarea, button {
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s;
-    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    /* box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4); */
 }
 
 .scroll-top.visible {
@@ -1688,14 +1701,90 @@ body {
 }
 
 /* ===================== NAVBAR & FOOTER FUSED WITH BODY ===================== */
+/* Navbar: same colour as body, but content scrolling underneath is blurred */
 :root .navbar,
 [data-theme="dark"] .navbar:not(.scrolled),
 [data-theme="dark"] .navbar.scrolled,
-:root .navbar.scrolled,
+:root .navbar.scrolled {
+    background: color-mix(in srgb, var(--bg) 40%, transparent);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: none;
+    box-shadow: none;
+}
+
+/* Footer: fully fused with body */
 :root .footer {
     background: transparent;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     border: none;
     box-shadow: none;
+}
+
+/* Mobile menu: near-solid so the page behind doesn't show through */
+:root .mobile-menu,
+[data-theme="dark"] .mobile-menu {
+    background: color-mix(in srgb, var(--bg) 97%, transparent);
+}
+
+/* ===================== MOBILE: HERO TEXT FULL WIDTH ===================== */
+@media (max-width: 768px) {
+    .hero { padding-inline: 0; }
+    .hero-text {
+        width: 100%;
+        max-width: none;
+        padding-inline: 0.75rem; /* small gutter so text doesn't touch the screen edge */
+    }
+    .hero-subtitle,
+    .hero-stats { max-width: none; }
+}
+
+
+/* ===================== THEME TOGGLE: BORDERLESS & BACKGROUNDLESS ===================== */
+:root .theme-toggle,
+:root .theme-toggle:hover,
+:root .theme-toggle:focus,
+:root .theme-toggle:active,
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .theme-toggle:hover {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+
+/* ===================== MOBILE: HERO TEXT NOT FULL-HEIGHT ===================== */
+@media (max-width: 768px) {
+    .hero-text {
+        min-height: 0;   /* no longer forced to the full screen height */
+        height: auto;    /* height follows the content */
+        width: 100%;     /* still full width */
+    }
+}
+
+
+/* ===================== MOBILE: LANDING = TEXT ONLY, IMAGE BELOW THE FOLD ===================== */
+@media (max-width: 768px) {
+    /* row 1 = first screen (text), row 2 = image */
+    .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(100svh, auto) auto;
+        min-height: 0;
+    }
+    /* the text box itself still fits its content, centred inside row 1 */
+    .hero-text {
+        align-self: center;
+        min-height: 0;
+        height: auto;
+    }
+    .hero-visual { grid-row: 2; }
+}
+
+/* short landscape phones: no forced full-screen first row */
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+    .hero-grid { grid-template-rows: auto auto; }
 }
