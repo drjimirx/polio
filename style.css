@@ -12,6 +12,7 @@
     --card-hover-bg: rgba(99, 102, 241, 0.05);
     --input-bg: rgba(0, 0, 0, 0.04);
     --footer-bg: rgba(241, 245, 249, 0.9);
+    --text-title-name: rgb(3, 135, 172);
 }
 
 [data-theme="dark"] {
@@ -24,6 +25,7 @@
     --card-hover-bg: rgba(99, 102, 241, 0.08);
     --input-bg: rgba(255, 255, 255, 0.05);
     --footer-bg: rgba(5, 8, 16, 0.8);
+    --text-title-name:rgb(54, 211, 203);
 }
 
 /* ===================== RESET & BASE ===================== */
@@ -1082,10 +1084,11 @@ input, textarea, button {
 
 .social-link:hover {
     transform: translateY(-8px);
+    font-size: 30px;
 }
 
 .social-link.github:hover {
-    background: rgba(0, 0, 0, 0.4);
+   background: rgba(0, 119, 181, 0.25);
     color: #0077b5;
 }
 
@@ -1634,7 +1637,7 @@ body {
 :root .hero-title .title-line.title-care { background: none; }
 .title-intro { -webkit-text-fill-color: #000; color: #000; }
 [data-theme="dark"] .title-intro { -webkit-text-fill-color: #f1f5f9; color: #f1f5f9; } /* black is invisible on the dark background */
-.title-name { -webkit-text-fill-color: #07afd0d1; color: #07afd0d1; }
+.title-name { -webkit-text-fill-color: var(--text-title-name); color: #ecf0f0d1; }
 
 /* ===================== MOBILE HERO: text first, image on scroll ===================== */
 @media (max-width: 768px) {
